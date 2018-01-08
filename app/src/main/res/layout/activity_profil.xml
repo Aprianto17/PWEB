@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.aprianto.pwebchat.ProfilActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="16sp"
+        android:background="#404040">
+
+        <TextView
+            android:id="@+id/tv_profil"
+            android:textColor="@android:color/white"
+            android:textSize="24dp"
+            android:text="Profil"
+            android:gravity="center_vertical"
+            android:textStyle="normal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="#404040"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_profil" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32dp"
+            android:text="Aprianto"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <LinearLayout
+                    android:paddingLeft="40dp"
+                    android:layout_width="350dp"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_email"/>
+
+                    <TextView
+                        android:id="@+id/tvEmail"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textSize="20sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:paddingLeft="40dp"
+                    android:layout_width="350dp"
+                    android:layout_height="56dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_phone"/>
+
+                    <TextView
+                        android:id="@+id/tvNomor"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone"
+                        android:textSize="20sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
