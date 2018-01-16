@@ -1,6 +1,7 @@
 package com.example.aprianto.pwebchat;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -22,6 +23,10 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UsersH
     List<User> users;
     private LayoutInflater inflater;
     private Context context;
+
+    //tambahan
+    RecyclerView rvUser;
+    User user;
 
     SharedPreferences mylocaldata;
 
@@ -67,20 +72,31 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UsersH
 
             thisuser = (CardView)itemView.findViewById(R.id.cvItemUser);
             tvName = (TextView)itemView.findViewById(R.id.tvName);
-            tvEmail = (TextView)itemView.findViewById(R.id.tvEmail);
-            tvNomor = (TextView)itemView.findViewById(R.id.tvNomor);
+//            tvEmail = (TextView)itemView.findViewById(R.id.tvEmail);
+//            tvNomor = (TextView)itemView.findViewById(R.id.tvNomor);
+
         }
 
         public void setData(User current, int position) {
             tvName.setText(current.getNama());
-            tvEmail.setText(current.getEmail());
-            tvNomor.setText(current.getTelepon());
+//            tvEmail.setText(current.getEmail());
+//            tvNomor.setText(current.getTelepon());
             String uid = mylocaldata.getString("uid","");
             this.position = position;
             this.current = current;
         }
 
         public void setListeners() {
+            //tamahan untuk user list pindah halaman
+            thisuser.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context,ProfilActivity.class);
+                    intent.putExtra("user",current);
+                    context.startActivity(intent);
+                }
+
+            });
         }
     }
 }

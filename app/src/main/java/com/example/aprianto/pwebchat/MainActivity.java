@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     EditText etKetik;
     ImageView btSend;
 
+    String ketik;
+
     RecyclerView rvChats;
     ChatListAdapter adapter;
 
@@ -70,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
 
         user = getIntent().getParcelableExtra("user");
 
+
+
 //        if ( user == null){
 //            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
 //            startActivity(intent);
@@ -99,17 +103,40 @@ public class MainActivity extends AppCompatActivity {
         etKetik = (EditText)findViewById(R.id.etKetik);
         btSend = (ImageView) findViewById(R.id.btSend);
 
+        //UNTUK SCROLL PALING BAWAH
+        rvChats.post(new Runnable() {
+            @Override
+            public void run() {
+                rvChats.smoothScrollToPosition(adapter.getItemCount());
+            }
+        });
+
         btSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Chat chat = new Chat();
-                chat.setPesan( etKetik.getText().toString() );
-                chat.setTanggal( new Date().getTime() );
-                chat.setSender( user );
+                //UNTUK MENCEGAH PESAN KOSONG TERKIRIM
+                ketik = etKetik.getText().toString();
+                if (ketik.equals("")) {
 
-                chat.send();
-                etKetik.setText("");
+                }
+                else {
+                    Chat chat = new Chat();
+                    chat.setPesan(etKetik.getText().toString());
+                    chat.setTanggal(new Date().getTime());
+                    chat.setSender(user);
+                    chat.send();
+                    //UNTUK SCROOL PALING BAWAH KETIKA KIRIM PESAN
+                    rvChats.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            rvChats.smoothScrollToPosition(adapter.getItemCount());
+                        }
+                    });
+
+                    etKetik.setText("");
+                }
             }
         });
+
     }
 }

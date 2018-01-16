@@ -24,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText etName, etTlp, etEmail;
     TextView btLogin;
     Button btRegister;
+    String name, tlp, email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +55,26 @@ public class RegisterActivity extends AppCompatActivity {
                 user.setTelepon( etTlp.getText().toString() );
                 user.setEmail( etEmail.getText().toString() );
 
-                user.register();
-                Toast.makeText(RegisterActivity.this, "registration successful", Toast.LENGTH_LONG).show();
-                etName.setText("");
-                etTlp.setText("");
-                etEmail.setText("");
+                //MENCEGAH DATA KOSONG
+                name = etName.getText().toString();
+                tlp = etTlp.getText().toString();
+                email = etEmail.getText().toString();
+                if(name.equals("")){
+                    etName.setError("can't be blank");
+                }
+                else if(tlp.equals("")){
+                    etTlp.setError("can't be blank");
+                }
+                else if(email.equals("")){
+                    etEmail.setError("can't be blank");
+                }
+                else {
+                    user.register();
+                    Toast.makeText(RegisterActivity.this, "registration successful", Toast.LENGTH_LONG).show();
+                    etName.setText("");
+                    etTlp.setText("");
+                    etEmail.setText("");
+                }
             }
         });
     }

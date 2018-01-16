@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText etNomorHp;
     Button btLogin;
     TextView btRegister;
+    String no;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference userRef  = database.getReference("users");
@@ -49,7 +50,12 @@ public class LoginActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         mylocaldata = getSharedPreferences("mylocaldata",MODE_PRIVATE);
                         User user = new User();
-                        if( dataSnapshot.exists()){
+                        no = etNomorHp.getText().toString();
+
+                        //MENCEGA LOGIN TAMPAH USER
+                        if (no.equals("")) {
+                            etNomorHp.setError("can't be blank");
+                        }else if( dataSnapshot.exists()){
                             user.setNama(dataSnapshot.child("nama").getValue(String.class) );
                             user.setEmail( dataSnapshot.child("email").getValue(String.class) );
                             user.setTelepon( dataSnapshot.child("telepon").getValue(String.class) );

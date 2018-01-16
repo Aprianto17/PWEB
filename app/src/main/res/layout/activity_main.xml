@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ddeeff"
+        android:background="#404040"
         android:layout_weight="1">
 
         <android.support.v7.widget.RecyclerView
@@ -28,14 +28,17 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+
         <EditText
             android:id="@+id/etKetik"
             android:layout_weight="1"
+            android:background="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:maxHeight="88dp"
             android:inputType="textMultiLine"
             android:paddingLeft="8dp"
+            android:paddingRight="8dp"
             android:hint="Write a message..." />
 
         <ImageView

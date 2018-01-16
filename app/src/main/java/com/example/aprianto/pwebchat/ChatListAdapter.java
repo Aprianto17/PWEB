@@ -27,6 +27,9 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatsH
     List<Chat> chats;
     private LayoutInflater inflater;
     private Context context;
+    //tambahan
+    RecyclerView rvChats;
+
 
     SharedPreferences mylocaldata;
 
@@ -34,6 +37,7 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatsH
         this.context = context;
         inflater = LayoutInflater.from(context);
         this.chats = chats;
+
 
         mylocaldata = context.getSharedPreferences("mylocaldata", MODE_PRIVATE);
     }
@@ -82,18 +86,19 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatsH
             SimpleDateFormat dformat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
             String dateString = dformat.format(new Date(Long.parseLong(current.getTanggal().toString())));
             tvTanggal.setText(dateString);
+
+//            ViewGroup.MarginLayoutParams LayoutParams = (ViewGroup.MarginLayoutParams) thischat.get;
+
             String uid = mylocaldata.getString("uid","");
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-            lp.weight = 1.0f;
+
             if( current.getSender().getTelepon().equals( uid )){
-                lp.gravity = Gravity.LEFT;
                 thischat.setCardBackgroundColor(Color.parseColor("#eeffdd"));
             }else {
-                lp.gravity = Gravity.RIGHT;
                 thischat.setCardBackgroundColor(Color.parseColor("#ffffff"));
             }
             this.position = position;
             this.current = current;
+
         }
         public void setListeners(){
 

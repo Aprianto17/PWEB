@@ -3,66 +3,42 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cvItemUser"
-    android:layout_width="match_parent"
+    android:layout_width="360dp"
     android:layout_height="wrap_content"
-    android:padding="8dp"
+    android:layout_gravity="center_horizontal"
     android:layout_margin="8dp"
-    app:cardCornerRadius="4dp">
+    android:padding="8dp"
+    >
 
     <LinearLayout
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
         android:orientation="vertical"
-        android:background="@drawable/chat"
         android:padding="8dp">
 
-        <TextView
-            android:id="@+id/tvName"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="Aprianto"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email    :"/>
+            <ImageView
+                android:src="@mipmap/ic_user"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="8dp"/>
 
             <TextView
-                android:id="@+id/tvEmail"
-                android:paddingLeft="8dp"
+                android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="aprianto@gmail.com"/>
+                android:gravity="center_horizontal"
+                android:text="Aprianto"
+                android:textSize="25sp" />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No.Hp   :"/>
-
-            <TextView
-                android:id="@+id/tvNomor"
-                android:paddingLeft="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="085212345"/>
-
-        </LinearLayout>
-
     </LinearLayout>
 
 
